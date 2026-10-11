@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+
+# 环境变量 / 本地配置（可能含 Token，切勿提交）
+.env
+.env.*
+*.local.json
+config.local.json
+
+# 编辑器 / 系统
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# 构建产物
+dist/
+build/
+output/
