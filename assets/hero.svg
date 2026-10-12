@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="440" viewBox="0 0 1000 440" font-family="PingFang SC, Microsoft YaHei, Segoe UI, sans-serif" role="img" aria-label="麦麦瘦身助手 · 让每一顿麦当劳都吃得明白">
+  <defs>
+    <linearGradient id="mcdred" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#DA291C"/>
+      <stop offset="100%" stop-color="#A3150C"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFE08A"/>
+      <stop offset="100%" stop-color="#FFC72C"/>
+    </linearGradient>
+    <clipPath id="cardclip"><rect x="640" y="96" width="320" height="250" rx="20"/></clipPath>
+  </defs>
+
+  <rect width="1000" height="440" fill="url(#mcdred)"/>
+  <!-- 金色底衬弧线 -->
+  <path d="M0 372 Q500 268 1000 372 L1000 440 L0 440 Z" fill="#000000" opacity="0.14"/>
+  <path d="M0 396 Q500 306 1000 396 L1000 440 L0 440 Z" fill="#FFC72C" opacity="0.16"/>
+
+  <!-- 金色拱门 -->
+  <path d="M52 316 C52 216 76 168 104 168 C132 168 156 216 156 316"
+        fill="none" stroke="url(#gold)" stroke-width="26" stroke-linecap="round"/>
+  <path d="M166 316 C166 216 190 168 218 168 C246 168 270 216 270 316"
+        fill="none" stroke="url(#gold)" stroke-width="26" stroke-linecap="round"/>
+  <rect x="46" y="312" width="230" height="8" rx="4" fill="#FFE08A" opacity="0.55"/>
+
+  <!-- 文案 -->
+  <text x="312" y="118" font-size="13" font-weight="700" fill="#FFC72C" letter-spacing="2">MCDONALD&#39;S MCP · HEALTH SKILL</text>
+  <text x="308" y="188" font-size="46" font-weight="800" fill="#FFFFFF">麦麦瘦身助手</text>
+  <text x="310" y="222" font-size="16" fill="#FFE9E6">MCD-FIT-BUDDY</text>
+  <line x1="310" y1="242" x2="370" y2="242" stroke="#FFC72C" stroke-width="4" stroke-linecap="round"/>
+  <text x="310" y="280" font-size="19" font-weight="700" fill="#FFFFFF">让每一顿麦当劳都「吃得明白」</text>
+  <text x="310" y="308" font-size="13.5" fill="#FFD9D5">历史订单热量审计 · 热量日历 · 习惯画像 · 健康点餐</text>
+
+  <!-- 价值标签 -->
+  <g font-size="12.5" font-weight="700">
+    <rect x="310" y="330" width="100" height="32" rx="16" fill="#FFFFFF" opacity="0.14"/>
+    <text x="360" y="351" fill="#FFFFFF" text-anchor="middle">热量透明</text>
+    <rect x="420" y="330" width="100" height="32" rx="16" fill="#FFFFFF" opacity="0.14"/>
+    <text x="470" y="351" fill="#FFFFFF" text-anchor="middle">长期可见</text>
+    <rect x="530" y="330" width="112" height="32" rx="16" fill="#FFFFFF" opacity="0.14"/>
+    <text x="586" y="351" fill="#FFFFFF" text-anchor="middle">推荐可解释</text>
+  </g>
+
+  <!-- 右侧：热量日历缩略卡（真实数据） -->
+  <g>
+    <rect x="640" y="96" width="320" height="250" rx="20" fill="#FFFFFF"/>
+    <rect x="640" y="96" width="320" height="250" rx="20" fill="none" stroke="#FFC72C" stroke-width="2" opacity="0.5"/>
+    <g clip-path="url(#cardclip)">
+      <rect x="640" y="96" width="320" height="52" fill="#FFF7E0"/>
+      <text x="660" y="126" font-size="14.5" font-weight="800" fill="#1F2328">2026 年 9 月热量日历</text>
+      <text x="660" y="144" font-size="11" fill="#8A6D1F">目标 1841 kcal/日 · 超标 0 天</text>
+    </g>
+    <!-- 7 行 × 2 周真实档位（9/7~9/20） -->
+    <g>
+      <rect x="662" y="168" width="16" height="16" rx="4" fill="#EBEDF0"/><rect x="682" y="168" width="16" height="16" rx="4" fill="#EBEDF0"/><rect x="702" y="168" width="16" height="16" rx="4" fill="#EBEDF0"/><rect x="722" y="168" width="16" height="16" rx="4" fill="#EBEDF0"/><rect x="742" y="168" width="16" height="16" rx="4" fill="#EBEDF0"/><rect x="762" y="168" width="16" height="16" rx="4" fill="#EBEDF0"/><rect x="782" y="168" width="16" height="16" rx="4" fill="#9BE9A8"/>
+      <rect x="802" y="168" width="16" height="16" rx="4" fill="#9BE9A8"/><rect x="822" y="168" width="16" height="16" rx="4" fill="#9BE9A8"/><rect x="842" y="168" width="16" height="16" rx="4" fill="#40C463"/><rect x="862" y="168" width="16" height="16" rx="4" fill="#9BE9A8"/><rect x="882" y="168" width="16" height="16" rx="4" fill="#40C463"/><rect x="902" y="168" width="16" height="16" rx="4" fill="#9BE9A8"/><rect x="922" y="168" width="16" height="16" rx="4" fill="#EBEDF0"/>
+    </g>
+    <g>
+      <rect x="662" y="190" width="16" height="16" rx="4" fill="#40C463"/><rect x="682" y="190" width="16" height="16" rx="4" fill="#EBEDF0"/><rect x="702" y="190" width="16" height="16" rx="4" fill="#EBEDF0"/><rect x="722" y="190" width="16" height="16" rx="4" fill="#EBEDF0"/><rect x="742" y="190" width="16" height="16" rx="4" fill="#9BE9A8"/><rect x="762" y="190" width="16" height="16" rx="4" fill="#40C463"/><rect x="782" y="190" width="16" height="16" rx="4" fill="#40C463"/>
+      <rect x="802" y="190" width="16" height="16" rx="4" fill="#9BE9A8"/><rect x="822" y="190" width="16" height="16" rx="4" fill="#9BE9A8"/><rect x="842" y="190" width="16" height="16" rx="4" fill="#EBEDF0"/><rect x="862" y="190" width="16" height="16" rx="4" fill="#9BE9A8"/><rect x="882" y="190" width="16" height="16" rx="4" fill="#9BE9A8"/><rect x="902" y="190" width="16" height="16" rx="4" fill="#40C463"/><rect x="922" y="190" width="16" height="16" rx="4" fill="#40C463"/>
+    </g>
+
+    <!-- 图例 -->
+    <g font-size="10.5" fill="#57606A">
+      <rect x="662" y="236" width="13" height="13" rx="3" fill="#EBEDF0"/><text x="680" y="246">无数据</text>
+      <rect x="736" y="236" width="13" height="13" rx="3" fill="#9BE9A8"/><text x="754" y="246">≤50%</text>
+      <rect x="806" y="236" width="13" height="13" rx="3" fill="#40C463"/><text x="824" y="246">50~100%</text>
+      <rect x="896" y="236" width="13" height="13" rx="3" fill="#D93A3A"/><text x="914" y="246">超标</text>
+    </g>
+
+    <!-- 底部洞察条 -->
+    <rect x="662" y="266" width="276" height="58" rx="12" fill="#FFF7E0"/>
+    <text x="680" y="290" font-size="13" font-weight="700" fill="#A3150C">💡 含糖饮料/甜品 10 份</text>
+    <text x="680" y="311" font-size="12" fill="#5C4A12">→ 换零度可乐，本餐 −180 kcal</text>
+  </g>
+</svg>

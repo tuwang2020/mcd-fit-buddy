@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="330" viewBox="0 0 680 330" font-family="PingFang SC, Microsoft YaHei, Segoe UI, sans-serif" role="img" aria-label="常见点法对比健康方案">
+  <rect width="680" height="330" fill="#FFFFFF"/>
+
+  <text x="32" y="38" font-size="15" font-weight="800" fill="#1F2328">同一顿饭，两种点法</text>
+  <text x="32" y="60" font-size="12" fill="#57606A">本餐目标 646 kcal ｜ 左侧为「可乐 + 大薯条」式常见点法，右侧为本项目推荐方案</text>
+
+  <!-- 左：常见点法（不健康） -->
+  <rect x="32" y="78" width="288" height="212" rx="16" fill="#FDF3F2" stroke="#E7B9B4" stroke-width="1.5"/>
+  <rect x="32" y="78" width="288" height="40" rx="16" fill="#DA291C"/>
+  <rect x="32" y="100" width="288" height="18" fill="#DA291C"/>
+  <text x="48" y="104" font-size="13.5" font-weight="800" fill="#FFFFFF">常见点法：主食 + 大薯条 + 中可乐</text>
+
+  <g font-size="13" fill="#1F2328">
+    <text x="48" y="146">麦辣鸡腿堡</text>       <text x="300" y="146" text-anchor="end" fill="#57606A">570 kcal</text>
+    <text x="48" y="172">大薯条</text>           <text x="300" y="172" text-anchor="end" fill="#57606A">490 kcal</text>
+    <text x="48" y="198">可口可乐（中）</text>  <text x="300" y="198" text-anchor="end" fill="#57606A">180 kcal</text>
+  </g>
+  <line x1="48" y1="214" x2="304" y2="214" stroke="#E7B9B4" stroke-width="1.5"/>
+
+  <!-- 超标条形：1240 vs 646 -->
+  <rect x="48" y="228" width="240" height="16" rx="8" fill="#F3DEDC"/>
+  <rect x="48" y="228" width="240" height="16" rx="8" fill="#DA291C"/>
+  <text x="48" y="270" font-size="21" font-weight="800" fill="#DA291C">1240 kcal</text>
+  <text x="48" y="280" font-size="0" fill="#DA291C"> </text>
+  <text x="163" y="270" font-size="12" fill="#7A2A24">超出目标 +594 kcal（1.9 倍）</text>
+
+  <!-- 右：健康方案 -->
+  <rect x="360" y="78" width="288" height="212" rx="16" fill="#EEF9F0" stroke="#A8DDB2" stroke-width="1.5"/>
+  <rect x="360" y="78" width="288" height="40" rx="16" fill="#1E7B34"/>
+  <rect x="360" y="100" width="288" height="18" fill="#1E7B34"/>
+  <text x="376" y="104" font-size="13.5" font-weight="800" fill="#FFFFFF">健康方案：主食 + 玉米杯 + 美式咖啡</text>
+
+  <g font-size="13" fill="#1F2328">
+    <text x="376" y="146">巨无霸</text>            <text x="628" y="146" text-anchor="end" fill="#57606A">550 kcal</text>
+    <text x="376" y="172">玉米杯</text>            <text x="628" y="172" text-anchor="end" fill="#57606A">90 kcal</text>
+    <text x="376" y="198">美式咖啡（中）</text>   <text x="628" y="198" text-anchor="end" fill="#57606A">10 kcal</text>
+  </g>
+  <line x1="376" y1="214" x2="632" y2="214" stroke="#A8DDB2" stroke-width="1.5"/>
+
+  <rect x="376" y="228" width="125" height="16" rx="8" fill="#1E7B34"/>
+  <text x="376" y="270" font-size="21" font-weight="800" fill="#1E7B34">650 kcal</text>
+  <text x="490" y="270" font-size="12" fill="#255E33">贴合目标（646 kcal）</text>
+
+  <!-- 差值标记 -->
+  <text x="340" y="248" font-size="26" font-weight="800" fill="#DA291C" text-anchor="middle">−</text>
+  <rect x="300" y="120" width="80" height="0" fill="none"/>
+</svg>

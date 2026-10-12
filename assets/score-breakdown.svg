@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="300" viewBox="0 0 680 300" font-family="PingFang SC, Microsoft YaHei, Segoe UI, sans-serif" role="img" aria-label="营养评分拆解">
+  <rect width="680" height="300" fill="#FFFFFF"/>
+
+  <text x="32" y="40" font-size="15" font-weight="800" fill="#1F2328">每个推荐都附「评分拆解」——不是黑盒</text>
+  <text x="32" y="62" font-size="12" fill="#57606A">以方案 1（巨无霸 + 玉米杯 + 美式咖啡，650 kcal）为例，总分 = 各分项之和</text>
+
+  <!-- 分项条形 -->
+  <g font-size="13" font-weight="600" fill="#1F2328">
+    <!-- 热量贴近度 -->
+    <text x="32" y="108">热量贴近度</text>
+    <rect x="176" y="94" width="300" height="20" rx="10" fill="#F1F3F5"/>
+    <rect x="176" y="94" width="10" height="20" rx="10" fill="#FFC72C"/>
+    <text x="492" y="109" font-size="13" font-weight="800" fill="#B8860B">−2.2</text>
+    <text x="560" y="109" font-size="11.5" fill="#8A93A0">650 ≈ 目标 646</text>
+
+    <!-- 蛋白质加分 -->
+    <text x="32" y="146">蛋白质加分</text>
+    <rect x="176" y="132" width="300" height="20" rx="10" fill="#F1F3F5"/>
+    <rect x="176" y="132" width="290" height="20" rx="10" fill="#1E7B34"/>
+    <text x="492" y="147" font-size="13" font-weight="800" fill="#1E7B34">+58.0</text>
+    <text x="560" y="147" font-size="11.5" fill="#8A93A0">29 g × 2 分</text>
+
+    <!-- 钠扣分 -->
+    <text x="32" y="184">钠扣分</text>
+    <rect x="176" y="170" width="300" height="20" rx="10" fill="#F1F3F5"/>
+    <rect x="176" y="170" width="82" height="20" rx="10" fill="#E8892B"/>
+    <text x="492" y="185" font-size="13" font-weight="800" fill="#C06A12">−15.5</text>
+    <text x="560" y="185" font-size="11.5" fill="#8A93A0">超 700 mg 上限</text>
+
+    <!-- 糖扣分 -->
+    <text x="32" y="222">糖扣分</text>
+    <rect x="176" y="208" width="300" height="20" rx="10" fill="#F1F3F5"/>
+    <rect x="176" y="208" width="8" height="20" rx="10" fill="#DA291C"/>
+    <text x="492" y="223" font-size="13" font-weight="800" fill="#DA291C">−1.5</text>
+    <text x="560" y="223" font-size="11.5" fill="#8A93A0">略高于 17 g</text>
+  </g>
+
+  <line x1="32" y1="244" x2="648" y2="244" stroke="#E4E7EB" stroke-width="1.5"/>
+
+  <!-- 总分 -->
+  <text x="32" y="278" font-size="14" font-weight="800" fill="#1F2328">总分</text>
+  <text x="176" y="279" font-size="22" font-weight="800" fill="#DA291C">38.8</text>
+  <text x="246" y="278" font-size="12" fill="#57606A">＝ −2.2 ＋ 58.0 − 15.5 − 1.5　（权重透明，可解释、可复现）</text>
+</svg>
