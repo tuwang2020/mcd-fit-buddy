@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>麦麦瘦身助手 · 交互演示</title>
+<meta name="description" content="基于麦当劳官方 MCP 的健康点餐 Skill：历史订单热量审计、热量日历、饮食习惯画像、可解释的营养评分与一键下单。">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ===================== 顶栏 ===================== -->
+<header class="topbar">
+  <div class="nav-inner">
+    <a class="brand" href="#top">
+      <svg viewBox="0 0 76 60" aria-hidden="true">
+        <path d="M8 54C8 24 15 8 22 8s14 16 14 46" fill="none" stroke="#DA291C" stroke-width="7" stroke-linecap="round"/>
+        <path d="M42 54c0-30 7-46 14-46s14 16 14 46" fill="none" stroke="#DA291C" stroke-width="7" stroke-linecap="round"/>
+      </svg>
+      <span>
+        <b>麦麦瘦身助手</b>
+        <small>MCD-FIT-BUDDY</small>
+      </span>
+    </a>
+    <nav class="steps" id="navSteps">
+      <a href="#s1" data-step="1"><i>01</i>身体指标</a>
+      <a href="#s2" data-step="2"><i>02</i>历史审计</a>
+      <a href="#s3" data-step="3"><i>03</i>健康点餐</a>
+      <a href="#s4" data-step="4"><i>04</i>确认下单</a>
+    </nav>
+    <button class="nav-cta" id="autoBtn">▶ 一键演示</button>
+  </div>
+  <div class="nav-progress"><span id="navProgress"></span></div>
+</header>
+
+<main id="top">
+
+  <!-- ===================== Hero ===================== -->
+  <section class="hero">
+    <div class="hero-copy">
+      <span class="eyebrow">MCDONALD'S MCP · 健康点餐 SKILL</span>
+      <h1>你这一顿，<em>吃了多少热量？</em></h1>
+      <p>点单页只有价格，没有热量。麦麦瘦身助手接上麦当劳官方 MCP，把历史订单变成一张热量日历，再把这一餐算成可以解释的营养最优解。</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#s2">看看我吃了多少 →</a>
+        <a class="btn btn-ghost" href="#s3">直接配一餐</a>
+      </div>
+      <div class="hero-meta">
+        <span>实时数据 <b id="heroFetched">--</b></span>
+        <span>门店 <b id="heroStore">--</b></span>
+        <span>来源 <b>mcp.mcd.cn</b></span>
+      </div>
+    </div>
+
+    <div class="hero-card">
+      <h4>2026 年 10 月热量日历</h4>
+      <div class="sub" id="heroCalSub">每日目标 1939 kcal</div>
+      <div class="mini-cal" id="heroCal"></div>
+      <div class="hero-stats">
+        <div class="hero-stat"><b id="heroStat1">--</b><span>有效订单</span></div>
+        <div class="hero-stat"><b id="heroStat2">--</b><span>平均每单</span></div>
+        <div class="hero-stat"><b id="heroStat3">--</b><span>累计支出</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 01 身体指标 ===================== -->
+  <section class="section reveal" id="s1">
+    <div class="sec-head">
+      <span class="sec-no">01 · 身体指标</span>
+      <h2>先算清楚，你一天该吃多少</h2>
+      <p>用 Mifflin-St Jeor 公式估算 BMR 与 TDEE，减脂期取 400 kcal 温和缺口，再平摊到三餐。拖动看看目标怎么变。</p>
+    </div>
+
+    <div class="profile-grid">
+      <div class="card profile-form">
+        <div class="field">
+          <label>性别</label>
+          <div class="seg" id="sexSeg">
+            <button data-v="M" class="on">男</button>
+            <button data-v="F">女</button>
+          </div>
+        </div>
+        <div class="field">
+          <label>年龄 <b><span id="ageOut">29</span> 岁</b></label>
+          <input type="range" id="age" min="16" max="70" value="29">
+        </div>
+        <div class="field">
+          <label>身高 <b><span id="heightOut">173</span> cm</b></label>
+          <input type="range" id="height" min="145" max="200" value="173">
+        </div>
+        <div class="field">
+          <label>体重 <b><span id="weightOut">76</span> kg</b></label>
+          <input type="range" id="weight" min="40" max="120" value="76">
+        </div>
+        <div class="field" style="margin-bottom:0">
+          <label>日常活动水平</label>
+          <select id="activity">
+            <option value="sedentary">久坐（几乎不运动）</option>
+            <option value="light" selected>轻度活动（办公族，每周 1-2 次）</option>
+            <option value="moderate">中度活动（每周 3-4 次）</option>
+            <option value="active">高强度（每周 5 次以上）</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="card target-panel">
+        <div class="target-ring-wrap">
+          <div class="ring">
+            <svg viewBox="0 0 120 120">
+              <circle class="track" cx="60" cy="60" r="52"></circle>
+              <circle class="bar" id="ringBar" cx="60" cy="60" r="52"
+                      stroke-dasharray="326.7" stroke-dashoffset="326.7"></circle>
+            </svg>
+            <div class="ring-text">
+              <b id="tDaily">1939</b>
+              <span>每日目标 kcal</span>
+            </div>
+          </div>
+          <div class="target-legend">
+            <div><span>基础代谢 BMR</span><b id="tBmr">1701</b></div>
+            <div><span>日常消耗 TDEE</span><b id="tTdee">2339</b></div>
+            <div><span>热量缺口</span><b id="tDeficit">−400</b></div>
+            <div><span>本餐目标</span><b id="tMeal">646</b></div>
+            <div><span>BMI</span><b id="tBmi">25.4 · 超重</b></div>
+          </div>
+        </div>
+        <div class="target-foot" id="targetFoot">
+          按《中国居民膳食指南（2022）》：轻活动成年男性每日约 2150–2400 kcal，钠 &lt; 2000 mg，添加糖 &lt; 50 g。
+          本餐目标取每日目标 ÷ 3。
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 02 历史审计 ===================== -->
+  <section class="section reveal" id="s2">
+    <div class="sec-head">
+      <span class="sec-no">02 · 链路 B</span>
+      <h2>你到底吃了多少，一笔一笔算</h2>
+      <p>拉取麦当劳历史订单，逐单、逐项匹配营养数据。退款不算吃，查不到热量的餐品绝不估算。</p>
+    </div>
+
+    <div class="scanbar" id="scanBar">
+      <span class="dot"></span>
+      <span id="scanText">准备拉取 order-list…</span>
+      <span class="track"><i id="scanFill"></i></span>
+      <b id="scanCount">0 / 29</b>
+    </div>
+
+    <div class="kpis stagger" id="kpis"></div>
+
+    <div class="grid-audit">
+      <div class="card habits">
+        <h3 class="card-title">饮食习惯画像</h3>
+        <p class="card-sub">每条结论都能从订单数据中复现</p>
+        <ul id="habitList"></ul>
+      </div>
+
+      <div class="card calendar-card">
+        <div class="cal-head">
+          <div class="cal-tabs" id="calTabs">
+            <button data-m="2026-09" class="on">2026 年 9 月</button>
+            <button data-m="2026-10">10 月</button>
+          </div>
+          <div class="cal-meta" id="calMeta">—</div>
+        </div>
+        <div class="calendar">
+          <div class="cal-weekdays">
+            <span>一</span><span>二</span><span>三</span><span>四</span><span>五</span><span>六</span><span>日</span>
+          </div>
+          <div class="cal-grid" id="calGrid"></div>
+        </div>
+        <div class="legend">
+          <span><i style="background:#f1f2f4"></i>无数据</span>
+          <span><i style="background:#9be9a8"></i>≤50% 目标</span>
+          <span><i style="background:#40c463"></i>50–100%</span>
+          <span><i style="background:#ffc72c"></i>超标 0–20%</span>
+          <span><i style="background:#f78140"></i>超标 20–50%</span>
+          <span><i style="background:#d93a3a"></i>超标 50%+</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card orders">
+      <h3 class="card-title">最近订单</h3>
+      <p class="card-sub">整单退款已过滤 · 含未知热量餐品的订单不计入日均</p>
+      <div id="orderList"></div>
+    </div>
+  </section>
+
+  <!-- ===================== 03 健康点餐 ===================== -->
+  <section class="section reveal" id="s3">
+    <div class="sec-head">
+      <span class="sec-no">03 · 链路 A</span>
+      <h2>这一餐，怎么点更划算也更健康</h2>
+      <p>门店、菜单、价格与可用券都来自麦当劳 MCP 实时返回。营养评分优先，其次才比价——次序不能反。</p>
+    </div>
+
+    <div class="store-row" id="storeRow"></div>
+
+    <div class="menu-layout">
+      <aside class="card side-panel">
+        <div class="side-ring">
+          <div class="ring">
+            <svg viewBox="0 0 120 120">
+              <circle class="track" cx="60" cy="60" r="52"></circle>
+              <circle class="bar" id="sideRing" cx="60" cy="60" r="52"
+                      stroke-dasharray="326.7" stroke-dashoffset="326.7"></circle>
+            </svg>
+            <div class="ring-text"><b id="sideMeal">646</b><span>本餐目标</span></div>
+          </div>
+          <p><b id="sideStoreName">华旭国际大厦餐厅</b>营业中 · 距你 144 m</p>
+        </div>
+        <div class="side-note" id="sideNote">
+          本店早餐菜单 12 款中，营养库精确覆盖 8 款。其余标记「热量未知」，<b>不参与推荐</b>。
+        </div>
+        <div class="side-coupons">
+          <h4>本店可用券（MCP 实时）</h4>
+          <div id="couponList"></div>
+        </div>
+      </aside>
+
+      <div class="menu-panel">
+        <div class="chips" id="menuChips"></div>
+        <div class="menu-grid" id="menuGrid"></div>
+      </div>
+    </div>
+
+    <div class="plans-head">
+      <div>
+        <h3>营养评分方案</h3>
+        <p id="planSub">目标 646 kcal · 评分 = 热量贴近 − 钠糖扣分 + 蛋白质加分</p>
+      </div>
+      <button class="link-btn" id="regenBtn">按当前目标重新计算 ↻</button>
+    </div>
+    <div class="plans" id="plans"></div>
+
+    <div class="trace">
+      <div class="trace-head">
+        <h4>MCP 调用链（本次演示真实发出）</h4>
+        <span id="traceTime">2026-10-21 09:44</span>
+      </div>
+      <div id="traceRows"></div>
+      <div class="trace-foot">
+        价格为「分」，展示时 ÷100；到店自取 beType=1 不传 beCode；下单前需 <code>calculate-price</code> 复核并显式确认。
+        本演示<strong>不会调用 create-order</strong>，不产生真实订单。
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 04 下单 ===================== -->
+  <section class="section reveal" id="s4">
+    <div class="sec-head">
+      <span class="sec-no">04 · 确认下单</span>
+      <h2>说清楚为什么，再让你决定</h2>
+      <p>结算前用官方 calculate-price 复核价格，取餐方式取自真实返回的 takeWayList。确认才会下单。</p>
+    </div>
+
+    <div class="order-layout">
+      <div class="card ticket">
+        <div class="ticket-head">
+          <h3>订单小票</h3>
+          <span id="ticketNo">#MCD-20261021-0944</span>
+        </div>
+        <div class="ticket-body">
+          <div class="ticket-store">
+            <b id="ticketStore">麦当劳上海黄浦华旭国际大厦餐厅</b>
+            <span id="ticketAddr">西藏中路336号 · 距你 144 m</span>
+          </div>
+          <div id="ticketItems"></div>
+          <div class="ticket-dashed"></div>
+          <div id="ticketTotals"></div>
+        </div>
+      </div>
+
+      <div class="card pay-panel">
+        <h3>取餐方式</h3>
+        <div class="takeway" id="takeway"></div>
+
+        <div id="payRows"></div>
+
+        <button class="btn btn-red pay-btn" id="payBtn">确认下单 · 演示模式</button>
+        <div class="pay-note">
+          <b>为什么需要确认？</b> 下单是不可逆动作，必须先经过官方计价复核，再由你显式确认。
+          本次演示运行在<strong>离线演示模式</strong>，点击后仅展示下单成功的样子，不会向麦当劳提交任何订单。
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="left">
+      <b>麦麦瘦身助手 · mcd-fit-buddy</b> — 麦当劳程序员创意开发大赛参赛作品，非麦当劳官方产品。<br>
+      门店、菜单、价格与可用券为 2026-10-21 09:44 通过 mcp.mcd.cn 实时拉取的快照；历史订单为确定性样例数据。
+      输出为通用估算，不构成医疗或营养建议；餐品信息与价格以麦当劳官方渠道实时公示为准。
+    </div>
+    <div class="right">
+      数据快照 <b id="footFetched">--</b><br>
+      由 <b>demo/build_demo_data.py</b> 生成
+    </div>
+  </div>
+</footer>
+
+<!-- 下单成功 -->
+<div class="modal" id="modal">
+  <div class="modal-mask" data-close></div>
+  <div class="modal-card">
+    <div class="modal-check">✓</div>
+    <h3>下单成功（演示）</h3>
+    <p>取餐号 <b style="color:#191a1e">A037</b>，预计 3 分钟后可取。<br>这只是一次演示，没有真实订单产生。</p>
+    <div class="receipt-mini" id="receiptMini"></div>
+    <button class="btn btn-red" style="width:100%;justify-content:center" data-close>知道了</button>
+  </div>
+</div>
+
+<div class="tooltip" id="tooltip"></div>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
